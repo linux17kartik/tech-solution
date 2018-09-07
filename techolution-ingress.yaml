@@ -4,20 +4,20 @@ metadata:
   name: techolution-06-sep-2018
   namespace: jenkins
   annotations:
-   #kubernetes.io/ingress.class: "gce"
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    #kubernetes.io/ingress.class: "nginx"
-    kubernetes.io/ingress.global-static-ip-name: test-ip
-    #ingress.gcp.kubernetes.io/pre-shared-cert: 
+   kubernetes.io/ingress.class: "gce"
 spec:
   rules:
-  - http:
+  - host: cicd.iface.cloud
+    http:
       paths:
       - path: /*
         backend:
           serviceName: jenkins-ui
           servicePort: 8080
-      - path: /app
+  - host: app.iface.cloud
+    http:
+      paths:
+      - path: /*
         backend:
           serviceName: app
           servicePort: 80

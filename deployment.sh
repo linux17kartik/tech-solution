@@ -12,7 +12,7 @@ docker build -t linux17kartik/app:$version .
 
 docker images
 
-docker login --username=linux17kartik  --password=g1234567
+docker login --username=USERNAME  --password=PASSWORD
 
 docker push linux17kartik/app:$version
 
